@@ -7,7 +7,10 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Jannah kan ikke lide terminalen!
+        </p>
+        <p>
+        Jannah kan lide React og hot-reload
         </p>
         <a
           className="App-link"
