@@ -1,3 +1,5 @@
+import "../styles/Box.css";
+
 export default function Box(props) {
   console.log(props.message);
 

@@ -1,0 +1,17 @@
+.todo {
+  border: 1px solid #e0e0e0;
+  width: 300px;
+  padding: 15px;
+  box-shadow: 2px 2px 5px #dc4b3e7a;
+  transition: 0.5s;
+  margin: 5px;
+}
+
+.todo:hover {
+  box-shadow: 2px 2px 5px #dc4c3e;
+}
+
+.todo > input[type="checkbox"] {
+  accent-color: #dc4c3e;
+  margin-right: 8px;
+}
