@@ -9,3 +9,24 @@ html,
   display: flex;
   flex-direction: column;
 }
+
+header {
+  background-color: #dc4c3e;
+  color: #ffffff;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  padding: 0 35px;
+}
+
+main {
+  flex: 1 1 auto;
+  padding: 0 300px;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

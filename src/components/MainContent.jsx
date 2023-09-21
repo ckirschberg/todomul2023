@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/MainContent.css";
 import TodoItem from "./TodoItem";
 import AddTodo from "./AddTodo";
 
