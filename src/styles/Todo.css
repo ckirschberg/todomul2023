@@ -1,10 +1,9 @@
 .todo {
   border: 1px solid #e0e0e0;
-  width: 300px;
+  width: 320px;
   padding: 15px;
   box-shadow: 2px 2px 5px #dc4b3e7a;
   transition: 0.5s;
-  margin: 5px;
 }
 
 .todo:hover {
@@ -16,14 +15,25 @@
   margin-right: 8px;
 }
 
+.add-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 35px 0;
+  gap: 15px;
+  width: 100%;
+}
+
+.add-container > input {
+  width: 100%;
+}
+
 .add-button {
   background-color: white;
   border: 2px solid #dc4c3e;
-  display: flex;
-  margin: 35px;
   padding: 10px;
   border-radius: 5px;
-  min-width: 150px;
+  min-width: 100px;
   justify-content: center;
   box-shadow: 2px 2px 5px #dc4c3e;
   transition: 0.2s;
