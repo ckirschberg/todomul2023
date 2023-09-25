@@ -34,16 +34,19 @@ export default function MainContent() {
     // console.log(e.target.value);
     setContent(e.target.value)
   }
+
+  // Brug dette som eksempel til opret pip- og opret kontakt- funktionaliten.
   const handleAddTodoClick = () => {
     // Opretter nyt todo objekt for at tilføje det til array'et af todos.
     // Hardcoded "dummy" deadline 2024-01-01, priority 1, labels []
     const newTodo = new Todo(content, new Date(), new Date(2024, 0, 1), 1, [])
 
     // kalde setTodos og sende det tidligere todos array + mit nye todo obj. ind.
-    setTodos([...todos, newTodo])
-
-
-    console.log("I clicked the button");
+    
+    // oprette et nyt array, indsætte todos objekter, tilføjer den den nye todo
+    // kalder setTodos med det nye todos array som parameter.
+    // google js-spread operator
+    setTodos([...todos, newTodo]) 
   }
 
   return (
