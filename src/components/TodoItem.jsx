@@ -1,10 +1,22 @@
 import React from "react";
 
-export default function TodoItem(props) {
+// Her modtager vi data via props. Vi kan ikke se hvad den hedder, 
+// men det står i parent-komponenten (MainContent)
+export default function TodoItem({todoItem}) {
+  // // Destructuring i js!
+  // const person =  {firstname: 'Oliver', email: 'oliver@oliver.dk'};
+  // const {firstname, email} = person; // destructuring.
+  // // const firstname og email som indeholder værdierne 'Oliver' og 'oliver@oliver.dk'.
+  
+  // // Dette gør det samme som eksemplet med destructuring
+  // const firstname2 = person.firstname;
+  // const email2 = person.email;
+
+
   return (
     <article className="todo">
-      <input type="checkbox" id={props.content} />
-      <label for={props.content}>{props.content}</label>
+      <input type="checkbox" id={todoItem.content} />
+      <label htmlFor={todoItem.content}>{todoItem.content}</label>
     </article>
   );
 }
