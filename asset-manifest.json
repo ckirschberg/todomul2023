@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/todomul2023/static/css/main.e7d30943.css",
+    "main.js": "/todomul2023/static/js/main.d3abff69.js",
+    "index.html": "/todomul2023/index.html",
+    "main.e7d30943.css.map": "/todomul2023/static/css/main.e7d30943.css.map",
+    "main.d3abff69.js.map": "/todomul2023/static/js/main.d3abff69.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e7d30943.css",
+    "static/js/main.d3abff69.js"
+  ]
+}
