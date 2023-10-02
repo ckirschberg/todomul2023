@@ -6,6 +6,7 @@ import ReactModal from "react-modal";
 export default function AddTodo({ todos, setTodos }) {
   const [content, setContent] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [touchedTodo, setTouchedTodo] = useState(false);
 
   const handleTodoContentChange = (e) => {
     // console.log(e.target.value);
@@ -35,14 +36,30 @@ export default function AddTodo({ todos, setTodos }) {
     setIsOpen(false);
   }
 
+
+  
+  let isValid = content.trim() !== '';
+
+
+  console.log(isValid);
+
+
   return (
     <div className="add-container">
       {/* Vores modal, lavet med react-modal biblioteket */}
       <ReactModal isOpen={isOpen}>
         <p>Modal Content</p>
-        <input type="text" value={content} onChange={handleTodoContentChange} />
+        <div>
+          <input type="text" value={content} onChange={handleTodoContentChange} 
+          onBlur={() => setTouchedTodo(true)} />
+        </div>
+        { !isValid && touchedTodo &&
+          <div>
+            Content cannot be empty. Please fill out the input.
+          </div>
+        }
         <MyButton buttonText={"Cancel"} onClick={handleCloseModal} />
-        <MyButton buttonText={"Create"} onClick={handleAddTodoClick} />
+        <MyButton buttonText={"Create"} onClick={handleAddTodoClick} disabled={!isValid}/>
       </ReactModal>
       <MyButton buttonText={"Add item"} onClick={handleOpenModal} />
     </div>

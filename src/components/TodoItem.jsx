@@ -14,6 +14,9 @@ export default function TodoItem({ todoItem }) {
   // const email2 = person.email;
   console.log(todoItem.deadline);
 
+  
+
+
   // Opretter et nyt Date objekt, på nuværende tidspunkt
   const today = new Date();
   const deadlineExceeded = todoItem.deadline < today;
