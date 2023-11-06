@@ -1,31 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 import AddTodo from "./AddTodo";
 import { Todo } from "../entities/todo";
 import SimpleStateExample from "./SimpleStateExample";
 
 export default function MainContent() {
-  const todosDummyData = [
-    new Todo("Feed my cat", new Date(), new Date(2023, 1, 1), 1, ["Home"]),
-    {
-      content: "Take over the world",
-      isCompleted: true,
-      created: new Date(),
-      deadline: new Date(2023, 1, 1),
-      priority: 1,
-      labels: ["Home"],
-    },
-    {
-      content: "Start over",
-      isCompleted: false,
-      created: new Date(),
-      deadline: new Date(2023, 4, 1),
-      priority: 1,
-      labels: ["Home"],
-    },
-  ];
+  const [todos, setTodos] = useState([]);
 
-  const [todos, setTodos] = useState(todosDummyData);
+  const fetchTodos = async () => {
+    const tableName = "todos";
+    const projectUrl = "https://dhufseluundbrnzuevyz.supabase.co"
+    const data = await fetch(projectUrl + '/rest/v1/' + tableName, {
+      headers: {
+        apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRodWZzZWx1dW5kYnJuenVldnl6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTg5OTc5NzAsImV4cCI6MjAxNDU3Mzk3MH0.VcCKoXEy7dReIvwGsGNs40uz1vsEMh022GiOmNcEhqI'
+      }
+    }).then(result => result.json())
+
+    console.log(data);
+    setTodos(data)
+  }
+
+  useEffect(() => {
+    fetchTodos();
+  }, []) // tomt array, betyder kør en gang.
+
+
+
 
   return (
     <main>

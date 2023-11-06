@@ -25,12 +25,34 @@ export default function AddTodo({ todos, setTodos }) {
       // oprette et nyt array, indsætte todos objekter, tilføjer den den nye todo
       // kalder setTodos med det nye todos array som parameter.
       // google js-spread operator
-      setTodos([...todos, newTodo]);
+      postTodo(newTodo)
+      
       handleCloseModal();
     } else {
       setTouchedTodo(true);
     }
   };
+
+  const postTodo = async (newTodo) => {
+    const tableName = "todos";
+    const projectUrl = "https://dhufseluundbrnzuevyz.supabase.co"
+    const data = await fetch(projectUrl + '/rest/v1/' + tableName, {
+      method: "POST",
+      body: JSON.stringify(newTodo),
+      headers: {
+        apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRodWZzZWx1dW5kYnJuenVldnl6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTg5OTc5NzAsImV4cCI6MjAxNDU3Mzk3MH0.VcCKoXEy7dReIvwGsGNs40uz1vsEMh022GiOmNcEhqI',
+        'Content-Type': 'application/json',
+        'Prefer': 'return=representation'
+      }
+    }).then(result => result.json())
+    .then(createdTodo => {
+      const todoFromSupabase = createdTodo[0];
+      setTodos([...todos, todoFromSupabase]);
+
+      console.log(createdTodo);
+    })
+  }
+
 
   function handleOpenModal() {
     setIsOpen(true);
