@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import MainContent from "./components/MainContent";
 import { useState } from "react";
 import { TodoContext } from "./context/todo-context";
+import Signup from "./components/Signup"
 
 // Root level component - "Roden i træstrukturen"
 function App() {
@@ -26,6 +27,7 @@ function App() {
     <div className="App">
       <TodoContext.Provider value={context}>
         <Header title="MUL ToDos 2023" />
+        <Signup />
         <MainContent />
       </TodoContext.Provider>
     </div>
